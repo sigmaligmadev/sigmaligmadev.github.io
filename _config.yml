@@ -1,4 +1,135 @@
-theme: jekyll-theme-minimal
-title: A SIGMAS HOMEPAGE
-description: Bookmark this to keep an eye on my project updates!
+# Jekyll configuration - sensible, well-documented defaults
+# Replace placeholder values (example.com, author name, analytics id) with your own.
 
+title: "Your Site Title"
+description: "A short description of your site for SEO and social cards."
+email: "you@example.com"
+url: "https://example.com"         # the base hostname & protocol for your site
+baseurl: ""                        # the subpath of your site, e.g. "/repo" (leave empty for root)
+lang: "en"
+timezone: "UTC"
+
+# Appearance / theme
+theme: minima                       # change to your theme (or remove if using custom assets)
+logo: "/assets/images/logo.png"
+favicon: "/assets/images/favicon.ico"
+
+# Author / Social
+author:
+  name: "Your Name"
+  email: "you@example.com"
+  url: "https://your-personal-site.example"
+social:
+  twitter: "your_twitter_handle"
+  github: "sigmaligmadev"
+  linkedin: "your-linkedin"
+
+# Build settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  parse_block_html: true
+
+highlighter: rouge
+
+permalink: /:categories/:year/:month/:day/:title/   # sensible SEO-friendly permalink
+paginate: 10
+paginate_path: "/page:num/"
+
+collections:
+  posts:
+    output: true
+  projects:
+    output: true
+    permalink: /projects/:title/
+
+# Useful plugins (install in Gemfile / enable on GitHub Pages where supported)
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate-v2
+  - jekyll-include-cache
+  - jekyll-archives
+
+# Defaults for front matter to reduce repetition
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      comments: true
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+
+# Exclude files & directories from the site output
+exclude:
+  - "node_modules"
+  - "vendor"
+  - "Gemfile"
+  - "Gemfile.lock"
+  - "README.md"
+  - ".gitignore"
+  - ".github"
+  - "package.json"
+  - "yarn.lock"
+
+# Include additional files that might otherwise be ignored
+include:
+  - ".htaccess"
+
+# Sass/SCSS
+sass:
+  sass_dir: "_sass"
+  style: compressed
+
+# Performance / build options
+incremental: false
+safe: false
+future: true   # include posts with future dates in local builds if you want; set false for production
+lsi: false
+
+# SEO / analytics (optional)
+google_analytics: "UA-XXXXX-Y"   # set to your GA id or remove
+# For privacy-first analytics, consider Plausible or Fathom instead of GA.
+
+# RSS / feed settings
+feed:
+  path: feed.xml
+
+# Sitemap settings
+sitemap:
+  exclude:
+    - "/assets/*"
+  include_posts: true
+
+# Archives: example grouping by categories/tags (requires jekyll-archives)
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layouts:
+    category: archive
+    tag: archive
+  permalinks:
+    category: /category/:name/
+    tag:      /tag/:name/
+
+# Helpful defaults for GitHub Pages users
+github:
+  is_project_page: false   # set true if deploying to username.github.io/repo
+
+# Helpful notes:
+# - For local development, create a separate config file (e.g. _config_dev.yml)
+#   with overrides like baseurl, url: "http://127.0.0.1:4000", and drafts: true,
+#   and run: jekyll serve --config _config.yml,_config_dev.yml
+#
+# - If using GitHub Pages: remove unsupported plugins or rely on GitHub Pages' supported plugins,
+#   or use GitHub Actions to build with your chosen plugins.
+#
+# - Add any extra collections, plugins or custom front-matter defaults below.
